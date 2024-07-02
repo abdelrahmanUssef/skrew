@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player Score Tracker</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <button id="languageToggleBtn" class="btn btn-secondary" onclick="toggleLanguage()">Switch to Arabic</button>
+        <h1 id="title" class="text-center">Player Score Tracker</h1>
+        <div class="square-container">
+            <div id="howToPlay" class="square visible full-width text-center">
+                <h2 id="howToPlayTitle">How To Play</h2>
+                <p id="howToPlayContent">Overview of the game: The game is simple but requires concentration. Each player starts with four cards and aims to get the lowest number of points to win.
+                    How to play: Players can see two cards and choose to draw a new card, swap it, or see other players' cards.
+                    Card values and effects: Some cards have special effects, such as seeing additional cards or randomly swapping cards.
+                    Winning and losing: The round ends when one player is satisfied with their cards and declares "screw", and the player with the fewest points wins.
+                    Special cards: Some cards have special values or effects, such as reducing points or forcing others to swap cards.</p>
+            </div>
+            <!-- Square 1: Number of Players -->
+            <div id="square1" class="square visible">
+                <h2 id="numPlayersTitle">Enter Number of Players</h2>
+                <div class="form-group">
+                    <label id="numPlayersLabel" for="numPlayers">Number of Players (max 10):</label>
+                    <input type="number" class="form-control" id="numPlayers" min="1" max="10" required>
+                </div>
+                <button id="numPlayersNextBtn" class="btn btn-lg w-100 btn-primary" onclick="showPlayerNames()">Next</button>
+            </div>
+            
+            <!-- Square 2: Player Names -->
+            <div id="square2" class="square">
+                <h2 id="playerNamesTitle">Enter Player Names</h2>
+                <div id="playerNames" class="row justify-content-center"></div>
+                <button id="playerNamesNextBtn" class="btn btn-primary" onclick="finalizePlayerNames()">Next</button>
+            </div>
+            
+            <!-- Square 3: Score Table -->
+            <div id="square3" class="square full-width">
+                <h2 id="enterScoresTitle">Enter Scores</h2>
+                <div class="table-responsive text-center">
+                    <table class="table table-bordered">
+                        <thead class="thead-dark">
+                            <tr id="scoreTableHeader"></tr>
+                        </thead>
+                        <tbody id="scoreTableBody"></tbody>
+                        <tfoot>
+                            <tr id="scoreTableFooter" style="background-color: var(--two);"></tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <button class="btn btn-danger mt-3" onclick="clearScores()">Clear Scores</button>
+            </div>
+        </div>
+    </div>
+
+        <script src="script.js">  </script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </body>
+    </html>

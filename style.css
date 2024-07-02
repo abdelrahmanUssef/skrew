@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+:root {
+--one: #30475E;
+--two: #F05454;
+--twofade: #F05454DD;
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif !important;
+}
+body {
+    background-color:  var(--one);
+    color: #fefee3;
+}
+.square-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+.square {
+    background-color: #fefee3;
+    color:  var(--one);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    visibility: hidden;
+}
+.square.visible {
+    visibility: visible;
+}
+.square.full-width {
+    grid-column: span 2;
+}
+.btn-primary {
+    background-color:  var(--twofade);
+    border: var(--two);
+}
+.btn-primary:hover {
+    background-color: var(--two);
+}
+
+@media (max-width: 768px) {
+    .square-container {
+        grid-template-columns: 1fr;
+    }
+    .square.full-width {
+        grid-column: span 1;
+    }
+}
